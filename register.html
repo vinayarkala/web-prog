@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spice Paradise Register</title>
+    <link rel="stylesheet" href="registering.css">
+</head>
+
+<body>
+    <div class="register-container">
+        <!-- Restaurant Header -->
+        <header class="restaurant-header">
+            <h1>Spice Paradise</h1>
+            <p>join authentic Indian flavours!!</p>
+        </header>
+
+        <!-- Register Form -->
+        <form action="register.php" method="POST" class="register-form">
+            <h2>Register</h2>
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" required>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" required>
+            <label for="role">Role:</label>
+            <select name="role" id="role">
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+            </select>
+            <button type="submit">Register</button>
+            <button type="button" onclick="window.location.href='login.html'">Login</button>
+        </form>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2025 Spice Paradise. Welcome to our community!</p>
+        </footer>
+    </div>
+</body>
+</html>

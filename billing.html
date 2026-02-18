@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spice Paradise - POS</title>
+    <link rel="stylesheet" href="billingg.css">
+</head>
+<body>
+
+<header class="header">
+    <h1>Spice Paradise POS</h1>
+    <form action="logout.php" method="POST" style="margin: 0;">
+        <button id="logout-btn" type="submit">Logout</button>
+    </form>
+</header>
+
+<div class="container">
+
+
+    <div id="categories" class="section">
+        <h2>Categories</h2>
+    </div>
+
+    
+    <div id="items" class="section">
+        <h2>Items</h2>
+        <div id="items-container">
+        
+        </div>
+    </div>
+
+
+    <div id="bill" class="section">
+
+        <div class="dashboard">
+            <h2>Order Dashboard</h2>
+         
+
+        <h2>Bill</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="bill-contents"></tbody>
+
+            <tfoot>
+                <tr>
+                    <td colspan="4"><strong>Grand Total:</strong></td>
+                    <td id="grand-total">0.00</td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <div id="service-options">
+            <label for="service-type">Service Type:</label>
+            <select id="service-type">
+                <option value="Takeaway">Takeaway</option>
+                <option value="Dine-In">Dine-In</option>
+                <option value="Delivery">Delivery</option>
+            </select>
+        </div>
+
+        <center>
+            <button id="checkout-btn">Checkout</button>
+        </center>
+
+    
+        <div id="receipt" style="display:none;">
+            <h3>Receipt</h3>
+            <div id="receipt-content"></div>
+        </div>
+
+    </div>
+</div>
+
+
+
+<div id="edit-modal" class="modal" style="display:none;">
+    <div class="modal-content">
+        <h3>Edit Product</h3>
+
+        <input type="hidden" id="edit-index">
+
+        <label>Product Name:</label>
+        <input type="text" id="edit-name">
+
+        <label>Price:</label>
+        <input type="number" id="edit-price" step="0.01">
+
+        <br><br>
+        <button id="save-edit">Save</button>
+        <button onclick="closeModal()">Cancel</button>
+    </div>
+</div>
+
+
+<script>
+    fetch('fetch_orders.php')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('total-orders').textContent = data.total_orders || 0;
+        })
+        .catch(error => {
+            document.getElementById('total-orders').textContent = 'Error';
+        });
+</script>
+
+<script src="billing.js"></script>
+
+</body>
+</html>

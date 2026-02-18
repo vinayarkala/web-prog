@@ -1,0 +1,111 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Register Container */
+.register-container {
+    width: 400px;
+    background-color: #f4e2d2;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Header */
+.restaurant-header {
+    background-color: #3dc8c1;
+    color: #ffffff;
+    padding: 20px;
+}
+
+.restaurant-header h1 {
+    font-size: 28px;
+    margin: 10px 0;
+}
+
+.restaurant-header p {
+    font-size: 16px;
+    margin: 0;
+}
+
+/* Register Form */
+.register-form {
+    padding: 20px 30px;
+}
+
+.register-form h2 {
+    font-size: 24px;
+    color: #4a90e2;
+    margin-bottom: 20px;
+}
+
+.register-form label {
+    display: block;
+    text-align: left;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.register-form input[type="text"],
+.register-form input[type="password"],
+.register-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.register-form select {
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+.register-form button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.register-form button[type="submit"] {
+    background-color: #4a90e2;
+    color: #ffffff;
+}
+
+.register-form button[type="submit"]:hover {
+    background-color: #357abd;
+}
+
+.register-form button[type="button"] {
+    background-color: #f78f8f;
+    color: #ffffff;
+}
+
+.register-form button[type="button"]:hover {
+    background-color: #e87070;
+}
+
+/* Footer */
+footer {
+    background-color: #37c0c3;
+    color: #ffffff;
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+}

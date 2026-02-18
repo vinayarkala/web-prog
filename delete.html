@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Product</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="form-container">
+    <h1>Delete Product</h1>
+    <div id="productList"></div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", loadProducts);
+
+function loadProducts() {
+    fetch("get_products.php")
+        .then(res => res.json())
+        .then(products => {
+            const container = document.getElementById("productList");
+            container.innerHTML = "";
+
+            products.forEach(product => {
+                container.innerHTML += `
+                    <div style="margin-bottom:15px;">
+                        <img src="${product.image_path}" width="50">
+                        <strong>${product.name}</strong> - $${product.price}
+                        <button onclick="deleteProduct(${product.id})">
+                            Delete
+                        </button>
+                    </div>
+                `;
+            });
+        });
+}
+
+function deleteProduct(id) {
+    if (!confirm("Delete this product?")) return;
+
+    fetch("delete_product.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id: id })
+    })
+    .then(res => res.text())
+    .then(msg => {
+        alert(msg);
+        loadProducts();
+    });
+}
+</script>
+
+</body>
+</html>
